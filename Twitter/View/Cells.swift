@@ -8,17 +8,40 @@
 
 import LBTAComponents
 
+let twitterBlueColor = UIColor(r: 30, g: 150, b: 240)
+
 class UserFooter: DatasourceCell {
+    
+    let textLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Show me more"
+        label.font = UIFont.systemFont(ofSize: 15)
+        label.textColor = twitterBlueColor
+        return label
+    }()
+    
     override func setupViews() {
         super.setupViews()
-        backgroundColor = .green
+        
+        addSubview(textLabel)
+        textLabel.anchor(topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
     }
 }
 
 class UserHeader: DatasourceCell {
+    
+    let textLabel: UILabel = {
+       let label = UILabel()
+        label.text = "Who to follow"
+        label.font = UIFont.systemFont(ofSize: 16)
+        return label
+    }()
+    
     override func setupViews() {
         super.setupViews()
-        backgroundColor = .blue
+        
+        addSubview(textLabel)
+        textLabel.anchor(topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
     }
 }
 
@@ -59,25 +82,25 @@ class UserCell: DatasourceCell {
        let text = UITextView()
         text.text = "Hello World!!! This is my twitter profile, I'm an iOS developer, this app is taken from let's build that app youtube channel"
         text.font = UIFont.systemFont(ofSize: 15)
+        text.backgroundColor = .clear
         return text
     }()
     
     let followButton: UIButton = {
         let button = UIButton()
         button.setTitle("Follow", for: .normal)
-        let twitterBlueColor = UIColor(r: 30, g: 150, b: 240)
+        
         button.setTitleColor(twitterBlueColor, for: .normal)
         button.layer.borderColor = twitterBlueColor.cgColor
         button.layer.borderWidth = 1
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        button.layer.cornerRadius = 17
+        button.layer.cornerRadius = 15
         button.clipsToBounds = true
         return button
     }()
     
     override func setupViews() {
         super.setupViews()
-        
         
         addSubview(profileImageView)
         addSubview(nameLabel)
@@ -87,14 +110,12 @@ class UserCell: DatasourceCell {
         
         profileImageView.anchor(self.topAnchor, left: self.leftAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 50, heightConstant: 50)
         
-        
-        
         nameLabel.anchor(profileImageView.topAnchor, left: profileImageView.rightAnchor, bottom: nil, right: followButton.leftAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 0, rightConstant: 12, widthConstant: 0, heightConstant: 20)
         
         userNameLabel.anchor(nameLabel.bottomAnchor, left: nameLabel.leftAnchor, bottom: nil, right: nameLabel.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 20)
         
         bioTextView.anchor(userNameLabel.bottomAnchor, left: userNameLabel.leftAnchor, bottom: self.bottomAnchor, right: self.rightAnchor, topConstant: -4, leftConstant: -4, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         
-        followButton.anchor(topAnchor, left: nil, bottom: nil, right: self.rightAnchor, topConstant: 12, leftConstant: 0, bottomConstant: 0, rightConstant: 12, widthConstant: 100, heightConstant: 34)
+        followButton.anchor(topAnchor, left: nil, bottom: nil, right: self.rightAnchor, topConstant: 12, leftConstant: 0, bottomConstant: 0, rightConstant: 12, widthConstant: 100, heightConstant: 30)
     }
 }
