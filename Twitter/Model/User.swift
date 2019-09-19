@@ -6,10 +6,11 @@
 //  Copyright © 2019 Alejandro. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct User{
     let name: String
     let userName: String
     let bioText: String
+    let profileImage: UIImage
 }

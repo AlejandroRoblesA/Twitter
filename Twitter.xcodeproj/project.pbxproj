@@ -11,6 +11,7 @@
 		6C0FD01BB10E0C0C47FE5E58 /* Pods_TwitterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4004F45BB606D513751169A9 /* Pods_TwitterTests.framework */; };
 		7FA015566B1F5B0AD3E5A588 /* Pods_TwitterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 921ABE0C7EBAF2DC6F8EB884 /* Pods_TwitterUITests.framework */; };
 		A910DC2A23334196008F9C5F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A910DC2923334196008F9C5F /* User.swift */; };
+		A910DC2C23334B42008F9C5F /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A910DC2B23334B42008F9C5F /* UserCell.swift */; };
 		A9126F8B2331AA1500C66D05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9126F8A2331AA1500C66D05 /* AppDelegate.swift */; };
 		A9126F922331AA1C00C66D05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9126F912331AA1C00C66D05 /* Assets.xcassets */; };
 		A9126F952331AA1C00C66D05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9126F932331AA1C00C66D05 /* LaunchScreen.storyboard */; };
@@ -18,7 +19,7 @@
 		A9126FAB2331AA1C00C66D05 /* TwitterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9126FAA2331AA1C00C66D05 /* TwitterUITests.swift */; };
 		A9126FB92331C62E00C66D05 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9126FB82331C62E00C66D05 /* HomeController.swift */; };
 		A9126FBB2331F92800C66D05 /* HomeDatasourceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9126FBA2331F92800C66D05 /* HomeDatasourceController.swift */; };
-		A9126FC0233201C000C66D05 /* Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9126FBF233201C000C66D05 /* Cells.swift */; };
+		A9126FC0233201C000C66D05 /* UserHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9126FBF233201C000C66D05 /* UserHeaderFooter.swift */; };
 		A9126FC22332021C00C66D05 /* HomeDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9126FC12332021C00C66D05 /* HomeDatasource.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		921ABE0C7EBAF2DC6F8EB884 /* Pods_TwitterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwitterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4E7CD967209F2980CC3C0F8 /* Pods_Twitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Twitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A910DC2923334196008F9C5F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A910DC2B23334B42008F9C5F /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		A9126F872331AA1500C66D05 /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9126F8A2331AA1500C66D05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9126F912331AA1C00C66D05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,7 +61,7 @@
 		A9126FAC2331AA1C00C66D05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9126FB82331C62E00C66D05 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		A9126FBA2331F92800C66D05 /* HomeDatasourceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDatasourceController.swift; sourceTree = "<group>"; };
-		A9126FBF233201C000C66D05 /* Cells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cells.swift; sourceTree = "<group>"; };
+		A9126FBF233201C000C66D05 /* UserHeaderFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHeaderFooter.swift; sourceTree = "<group>"; };
 		A9126FC12332021C00C66D05 /* HomeDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDatasource.swift; sourceTree = "<group>"; };
 		AAD88C2A1645A35BD8D90353 /* Pods-TwitterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterUITests.release.xcconfig"; path = "Target Support Files/Pods-TwitterUITests/Pods-TwitterUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BF6AD91EB46AB887973B4A16 /* Pods-TwitterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterTests.debug.xcconfig"; path = "Target Support Files/Pods-TwitterTests/Pods-TwitterTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -175,7 +177,8 @@
 		A9126FBD2332017200C66D05 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A9126FBF233201C000C66D05 /* Cells.swift */,
+				A9126FBF233201C000C66D05 /* UserHeaderFooter.swift */,
+				A910DC2B23334B42008F9C5F /* UserCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -421,9 +424,10 @@
 				A9126FC22332021C00C66D05 /* HomeDatasource.swift in Sources */,
 				A9126F8B2331AA1500C66D05 /* AppDelegate.swift in Sources */,
 				A910DC2A23334196008F9C5F /* User.swift in Sources */,
-				A9126FC0233201C000C66D05 /* Cells.swift in Sources */,
+				A9126FC0233201C000C66D05 /* UserHeaderFooter.swift in Sources */,
 				A9126FBB2331F92800C66D05 /* HomeDatasourceController.swift in Sources */,
 				A9126FB92331C62E00C66D05 /* HomeController.swift in Sources */,
+				A910DC2C23334B42008F9C5F /* UserCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
