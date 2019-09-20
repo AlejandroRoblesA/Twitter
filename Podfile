@@ -8,6 +8,7 @@ target 'Twitter' do
   # Pods for Twitter
 
 pod 'LBTAComponents'
+pod 'TRON'
 
   target 'TwitterTests' do
     inherit! :search_paths
