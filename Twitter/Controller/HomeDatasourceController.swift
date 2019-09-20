@@ -9,6 +9,12 @@
 import LBTAComponents
 
 class HomeDatasourceController: DatasourceController{
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        //This methos is used to correctly landscape view
+        collectionViewLayout.invalidateLayout()
+    }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
