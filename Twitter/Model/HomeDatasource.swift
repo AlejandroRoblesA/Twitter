@@ -10,7 +10,16 @@ import LBTAComponents
 
 class HomeDatasource: Datasource {
     
-    let tweets = ["tweetOne", "tweetTwo"]
+    let tweets: [Tweet] = {
+        
+        let alexUser = User(name: "Alejandro Robles", userName: "@AlejandroRoblesz", bioText: "Hello World!!! This is my twitter profile, I'm an iOS developer, this app is taken from let's build that app youtube channel", profileImage: UIImage(named: "ProfileImage")!)
+        
+        let tweet = Tweet(user: alexUser, message: "Hello Word!!. This is the first tweet example the app, rewritted by me on Swift 5, and this code is taken from letsbuidthatapp youtube channel. This tweet has to be longer more that Tweeter allows just to test the dynamic cell size, I think this is enough. Greeting")
+        
+        let tweetTwo = Tweet(user: alexUser, message: "Hello Word!!! Again, this is the second twett test, I think this tweet could be shorter that the fisrt")
+        
+        return [tweet, tweetTwo]
+    }()
     
     let users: [User] = {
         let alexUser = User(name: "Alejandro Robles", userName: "@AlejandroRoblesz", bioText: "Hello World!!! This is my twitter profile, I'm an iOS developer, this app is taken from let's build that app youtube channel", profileImage: UIImage(named: "ProfileImage")!)
@@ -33,6 +42,9 @@ class HomeDatasource: Datasource {
     }
     
     override func item(_ indexPath: IndexPath) -> Any? {
+        if (indexPath.section == 1){
+            return tweets[indexPath.item]
+        }
         return users[indexPath.item]
     }
     
