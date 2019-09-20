@@ -7,8 +7,41 @@
 //
 
 import LBTAComponents
+import TRON
+import SwiftyJSON
 
 class HomeDatasourceController: DatasourceController{
+    
+    let tron = TRON(baseURL: "https://api.letsbuildthatapp.com")
+    
+    class Home: JSONDecodable{
+        
+        let users: [User]
+        
+        required init(json: JSON) throws {
+            
+            var users = [User]()
+            
+            let array = json["users"].array
+            for userJSON in array!{
+                
+                let name = userJSON["name"].stringValue
+                let userName = userJSON["username"].stringValue
+                let bio = userJSON["bio"].stringValue
+                
+                let user = User(name: name, userName: userName, bioText: bio, profileImage: UIImage())
+                users.append(user)
+            }
+            self.users = users
+        }
+        
+    }
+    
+    class JSONError: JSONDecodable {
+        required init(json: JSON) throws {
+            print("JSON ERROR")
+        }
+    }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         //This methos is used to correctly landscape view
@@ -23,11 +56,25 @@ class HomeDatasourceController: DatasourceController{
         
         setupNavigationBarItems()
         
-        let homeDatasource = HomeDatasource()
-        self.datasource = homeDatasource
-        
+//        let homeDatasource = HomeDatasource()
+//        self.datasource = homeDatasource
+
+        fetchHomeFeed()
     }
     
+    fileprivate func fetchHomeFeed(){
+        
+        let request: APIRequest <HomeDatasource, JSONError> = tron.swiftyJSON.request("/twitter/home")
+        //request("/twitter/home", responseSerializer: responseSerializer)
+        request.perform(withSuccess: { ( homeDatasource ) in
+            print("Successfully fetched our JSON objects")
+            
+            self.datasource = homeDatasource
+        }) { (error) in
+            print("Failed to fetch JSON", error)
+        }
+        
+    }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
