@@ -13,7 +13,9 @@ class TweetCell: DatasourceCell {
     override var datasourceItem: Any?{
         didSet{
             guard let tweet = datasourceItem as? Tweet else { return }
-            messageTextView.text = tweet.message
+            //messageTextView.text = tweet.message
+            
+            profileImageView.loadImage(urlString: tweet.user.profileImageUrl)
             
             let attributedText = NSMutableAttributedString(string: tweet.user.name, attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16)])
             let usernameString = "  \(tweet.user.userName)\n"
@@ -34,8 +36,8 @@ class TweetCell: DatasourceCell {
         return textView
     }()
     
-    let profileImageView: UIImageView = {
-        let image = UIImageView()
+    let profileImageView: CachedImageView = {
+        let image = CachedImageView()
         image.image = UIImage(named: "ProfileImage")
         image.layer.masksToBounds = true
         image.layer.cornerRadius = 25

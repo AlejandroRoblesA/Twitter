@@ -10,8 +10,8 @@ import LBTAComponents
 
 class UserCell: DatasourceCell {
     
-    let profileImageView: UIImageView = {
-        let image = UIImageView()
+    let profileImageView: CachedImageView = {
+        let image = CachedImageView()
         image.image = UIImage(named: "ProfileImage")
         image.layer.masksToBounds = true
         image.layer.cornerRadius = 25
@@ -26,7 +26,7 @@ class UserCell: DatasourceCell {
             nameLabel.text = user.name
             userNameLabel.text = user.userName
             bioTextView.text = user.bioText
-            profileImageView.image = user.profileImage
+            profileImageView.loadImage(urlString: user.profileImageUrl)
         }
     }
     
