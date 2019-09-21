@@ -13,34 +13,28 @@ import SwiftyJSON
 class HomeDatasource: Datasource, JSONDecodable {
     
     let users: [User]
+    let tweets: [Tweet]
     
     required init(json: JSON) throws {
         
-        var users = [User]()
+//        var tweets = [Tweet]()
         
-        let array = json["users"].array
-        for userJSON in array!{
-            
-            let name = userJSON["name"].stringValue
-            let userName = userJSON["username"].stringValue
-            let bio = userJSON["bio"].stringValue
-            
-            let user = User(name: name, userName: userName, bioText: bio, profileImage: UIImage())
-            users.append(user)
-        }
-        self.users = users
+        let usersJsonArray = json["users"].array
+        self.users = usersJsonArray!.map{ User(json: $0)}
+        
+        let tweetsJsonArray = json["tweets"].array
+        self.tweets = tweetsJsonArray!.map{Tweet(json: $0)}
+//        for tweetJson in tweetsJsonArray!{
+//
+//            let tweet = Tweet(json: tweetJson)
+//            tweets.append(tweet)
+//        }
+        
+        //self.users = users
+//        self.tweets = tweets
     }
     
-    let tweets: [Tweet] = {
-        
-        let alexUser = User(name: "Alejandro Robles", userName: "@AlejandroRoblesz", bioText: "Hello World!!! This is my twitter profile, I'm an iOS developer, this app is taken from let's build that app youtube channel", profileImage: UIImage(named: "ProfileImage")!)
-        
-        let tweet = Tweet(user: alexUser, message: "Hello Word!!. This is the first tweet example the app, rewritted by me on Swift 5, and this code is taken from letsbuidthatapp youtube channel. This tweet has to be longer more that Tweeter allows just to test the dynamic cell size, I think this is enough. Greeting")
-        
-        let tweetTwo = Tweet(user: alexUser, message: "Hello Word!!! Again, this is the second twett test, I think this tweet could be shorter that the fisrt")
-        
-        return [tweet, tweetTwo]
-    }()
+    
     
 //    let users: [User] = {
 //        let alexUser = User(name: "Alejandro Robles", userName: "@AlejandroRoblesz", bioText: "Hello World!!! This is my twitter profile, I'm an iOS developer, this app is taken from let's build that app youtube channel", profileImage: UIImage(named: "ProfileImage")!)

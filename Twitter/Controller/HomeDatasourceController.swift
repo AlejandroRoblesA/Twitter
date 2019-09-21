@@ -25,10 +25,6 @@ class HomeDatasourceController: DatasourceController{
         
         setupNavigationBarItems()
         
-//        let homeDatasource = HomeDatasource()
-//        self.datasource = homeDatasource
-
-        //fetchHomeFeed()
         Service.sharedInstance.fetchHomeFeed { (homeDatasource) in
             self.datasource = homeDatasource
         }
