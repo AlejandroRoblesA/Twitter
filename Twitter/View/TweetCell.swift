@@ -33,6 +33,7 @@ class TweetCell: DatasourceCell {
        let textView = UITextView()
         textView.text = "Some sample text"
         textView.backgroundColor = .clear
+        textView.isUserInteractionEnabled = false
         return textView
     }()
     

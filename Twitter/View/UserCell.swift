@@ -50,6 +50,7 @@ class UserCell: DatasourceCell {
         text.text = "Hello World!!! This is my twitter profile, I'm an iOS developer, this app is taken from let's build that app youtube channel"
         text.font = UIFont.systemFont(ofSize: 15)
         text.backgroundColor = .clear
+        text.isUserInteractionEnabled = false
         return text
     }()
     
